@@ -1,7 +1,5 @@
 # Projet Python
 
-Cyril Verluise
-ENSAE 2017-18
 
 ```shell
 ├── README.md
