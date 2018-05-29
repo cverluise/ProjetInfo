@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ScrapIR</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ScrapIR</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/ScrapIR.py">/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/ScrapIR.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;tools&nbsp;to&nbsp;scrap&nbsp;articles&nbsp;from&nbsp;Ideas&nbsp;Repec</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_attrs"><strong>get_attrs</strong></a>(eja, root='https://ideas.repec.org/a/')</dt><dd><tt>This&nbsp;function&nbsp;returns&nbsp;the&nbsp;attributes&nbsp;of&nbsp;interest&nbsp;from&nbsp;the&nbsp;<br>
+specified&nbsp;article&nbsp;(format&nbsp;editor/journal/article).&nbsp;<br>
+&nbsp;<br>
+:param&nbsp;eja:&nbsp;format&nbsp;editor/journal/article<br>
+:param&nbsp;root:&nbsp;default&nbsp;"https://ideas.repec.org/a/"<br>
+:return:&nbsp;url,&nbsp;title,&nbsp;authors,&nbsp;date,&nbsp;jel_code,&nbsp;keywords</tt></dd></dl>
+ <dl><dt><a name="-get_cits"><strong>get_cits</strong></a>(eja, root='https://ideas.repec.org/a/')</dt><dd><tt>This&nbsp;function&nbsp;returns&nbsp;the&nbsp;citations&nbsp;pointing&nbsp;to&nbsp;the&nbsp;<br>
+specified&nbsp;article&nbsp;(format&nbsp;eja:&nbsp;editor/journal/article)<br>
+&nbsp;<br>
+:param&nbsp;eja:&nbsp;&nbsp;format&nbsp;editor/journal/article<br>
+:param&nbsp;root:&nbsp;default&nbsp;"https://ideas.repec.org/a/"<br>
+:return:&nbsp;[[id_art,&nbsp;id_cit]...]&nbsp;(np.array)</tt></dd></dl>
+ <dl><dt><a name="-get_refs"><strong>get_refs</strong></a>(eja, root='https://ideas.repec.org/a/')</dt><dd><tt>This&nbsp;function&nbsp;returns&nbsp;the&nbsp;references&nbsp;from&nbsp;the&nbsp;<br>
+specified&nbsp;article&nbsp;(format&nbsp;eja:&nbsp;editor/journal/article)<br>
+&nbsp;<br>
+:param&nbsp;eja:&nbsp;&nbsp;format&nbsp;editor/journal/article<br>
+:param&nbsp;root:&nbsp;default&nbsp;"https://ideas.repec.org/a/"<br>
+:return:&nbsp;[[id_art,&nbsp;id_ref]...]&nbsp;(np.array)</tt></dd></dl>
+ <dl><dt><a name="-get_stack"><strong>get_stack</strong></a>(itr_list, meth)</dt><dd><tt>This&nbsp;function&nbsp;piles-up&nbsp;the&nbsp;refences/citations&nbsp;from/pointing<br>
+to&nbsp;the&nbsp;sequence&nbsp;of&nbsp;specified&nbsp;articles&nbsp;(format&nbsp;eja:&nbsp;<br>
+editor/journal/article)<br>
+&nbsp;<br>
+:param&nbsp;itr_list:&nbsp;&nbsp;list&nbsp;of&nbsp;eja&nbsp;(potentially&nbsp;eja[i:j])<br>
+:param&nbsp;meth:"ref"&nbsp;for&nbsp;references<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"cit"&nbsp;for&nbsp;citations<br>
+:return:[id_art1,&nbsp;id_cit1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id_art1,&nbsp;id_cit2]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id_artn,&nbsp;id_citp]]&nbsp;(np.array)</tt></dd></dl>
+</td></tr></table>
+</body></html>

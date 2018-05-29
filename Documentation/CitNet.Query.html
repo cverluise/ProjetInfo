@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Query</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Query</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/Query.py">/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/Query.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;tools&nbsp;for&nbsp;querying&nbsp;our&nbsp;database</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-expand_root"><strong>expand_root</strong></a>(root_nodes, graph, d)</dt><dd><tt>Expand&nbsp;root&nbsp;nodes&nbsp;by&nbsp;including&nbsp;their&nbsp;successors&nbsp;and&nbsp;some&nbsp;of&nbsp;their&nbsp;predecessors<br>
+(d&nbsp;to&nbsp;be&nbsp;exact)<br>
+&nbsp;<br>
+:param&nbsp;root_nodes:&nbsp;(list-like)&nbsp;the&nbsp;roots&nbsp;nodes<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+:param&nbsp;d:&nbsp;how&nbsp;many&nbsp;predecessors&nbsp;to&nbsp;include&nbsp;at&nbsp;most&nbsp;?<br>
+&nbsp;<br>
+:return:&nbsp;the&nbsp;expanded&nbsp;nodes&nbsp;list&nbsp;(list).</tt></dd></dl>
+ <dl><dt><a name="-indexlist_inter"><strong>indexlist_inter</strong></a>(indexlist)</dt><dd><tt>Intersection&nbsp;of&nbsp;all&nbsp;elements&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;indexes<br>
+&nbsp;<br>
+:param&nbsp;indexlist:&nbsp;(list)&nbsp;the&nbsp;list&nbsp;of&nbsp;pandas&nbsp;indexes&nbsp;(pandas.indexes.range.RangeIndex)<br>
+&nbsp;<br>
+:return:&nbsp;(pandas.indexes.range.RangeIndex)&nbsp;The&nbsp;intersected&nbsp;index</tt></dd></dl>
+ <dl><dt><a name="-indexlist_union"><strong>indexlist_union</strong></a>(indexlist)</dt><dd><tt>Union&nbsp;of&nbsp;all&nbsp;elements&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;indexes<br>
+&nbsp;<br>
+:param&nbsp;indexlist:&nbsp;(list)&nbsp;the&nbsp;list&nbsp;of&nbsp;pandas&nbsp;indexes&nbsp;(pandas.indexes.range.RangeIndex)<br>
+&nbsp;<br>
+:return:&nbsp;The&nbsp;union&nbsp;index&nbsp;(pandas.indexes.range.RangeIndex)</tt></dd></dl>
+ <dl><dt><a name="-similarity_query_subgraph"><strong>similarity_query_subgraph</strong></a>(nodes_list, graph, d)</dt><dd><tt>Find&nbsp;expanded&nbsp;subgraph&nbsp;for&nbsp;a&nbsp;similarity&nbsp;query<br>
+&nbsp;<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+:param&nbsp;d:&nbsp;how&nbsp;many&nbsp;predecessors&nbsp;to&nbsp;include&nbsp;at&nbsp;most&nbsp;?<br>
+:param&nbsp;nodes_list:&nbsp;the&nbsp;list&nbsp;of&nbsp;articles&nbsp;of&nbsp;our&nbsp;similar&nbsp;to&nbsp;request<br>
+&nbsp;<br>
+:return:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;expanded&nbsp;subgraph&nbsp;for&nbsp;the&nbsp;similarity&nbsp;query</tt></dd></dl>
+ <dl><dt><a name="-similarity_subgraph_root"><strong>similarity_subgraph_root</strong></a>(nodes_list, graph)</dt><dd><tt>Root&nbsp;nodes&nbsp;for&nbsp;building&nbsp;a&nbsp;subgraph&nbsp;relevant&nbsp;to&nbsp;similarity&nbsp;query<br>
+&nbsp;<br>
+:param&nbsp;nodes_list:&nbsp;the&nbsp;list&nbsp;of&nbsp;articles&nbsp;of&nbsp;our&nbsp;similar&nbsp;to&nbsp;request<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+&nbsp;<br>
+:return&nbsp;list&nbsp;of&nbsp;root&nbsp;nodes&nbsp;for&nbsp;our&nbsp;similarity&nbsp;request</tt></dd></dl>
+ <dl><dt><a name="-topic_query"><strong>topic_query</strong></a>(df, query_list, search_in=('title', 'keywords'))</dt><dd><tt>Return&nbsp;indexes&nbsp;corresponding&nbsp;to&nbsp;a&nbsp;given&nbsp;query<br>
+&nbsp;<br>
+:param&nbsp;df:&nbsp;(pandas.core.frame.DataFrame)&nbsp;Dataframe&nbsp;on&nbsp;which&nbsp;to&nbsp;perform&nbsp;the&nbsp;query<br>
+:param&nbsp;query_list:&nbsp;(list)&nbsp;list&nbsp;of&nbsp;keywords<br>
+:param&nbsp;search_in:&nbsp;(tuple)&nbsp;The&nbsp;columns&nbsp;to&nbsp;include&nbsp;for&nbsp;the&nbsp;query<br>
+&nbsp;<br>
+:return:&nbsp;(list)&nbsp;the&nbsp;list&nbsp;of&nbsp;result&nbsp;indexes,&nbsp;one&nbsp;per&nbsp;column&nbsp;in&nbsp;search_in</tt></dd></dl>
+ <dl><dt><a name="-topic_query_subgraph"><strong>topic_query_subgraph</strong></a>(graph, d, df, query_list, search_in=('title', 'keywords'), how='union')</dt><dd><tt>Find&nbsp;expanded&nbsp;subgraph&nbsp;for&nbsp;a&nbsp;topic&nbsp;query<br>
+&nbsp;<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+:param&nbsp;d:&nbsp;how&nbsp;many&nbsp;predecessors&nbsp;to&nbsp;include&nbsp;at&nbsp;most&nbsp;?<br>
+:param&nbsp;df:&nbsp;(pandas.core.frame.DataFrame)&nbsp;Dataframe&nbsp;on&nbsp;which&nbsp;to&nbsp;perform&nbsp;the&nbsp;query<br>
+:param&nbsp;query_list:&nbsp;(list)&nbsp;List&nbsp;of&nbsp;keywords<br>
+:param&nbsp;search_in:&nbsp;(tuple)&nbsp;The&nbsp;columns&nbsp;to&nbsp;include&nbsp;for&nbsp;the&nbsp;query<br>
+:param&nbsp;how:&nbsp;(str)&nbsp;How&nbsp;to&nbsp;join&nbsp;the&nbsp;indexes&nbsp;in&nbsp;the&nbsp;list&nbsp;?<br>
+&nbsp;<br>
+:return:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;expanded&nbsp;subgraph&nbsp;for&nbsp;the&nbsp;query</tt></dd></dl>
+ <dl><dt><a name="-topic_subgraph_root"><strong>topic_subgraph_root</strong></a>(df, query_list, search_in=('title', 'keywords'), how='union')</dt><dd><tt>Root&nbsp;nodes&nbsp;for&nbsp;building&nbsp;a&nbsp;subgraph&nbsp;relevant&nbsp;to&nbsp;a&nbsp;topic&nbsp;based&nbsp;query<br>
+&nbsp;<br>
+:param&nbsp;df:&nbsp;(pandas.core.frame.DataFrame)&nbsp;Dataframe&nbsp;on&nbsp;which&nbsp;to&nbsp;perform&nbsp;the&nbsp;query<br>
+:param&nbsp;query_list:&nbsp;(list)&nbsp;list&nbsp;of&nbsp;keywords<br>
+:param&nbsp;search_in:&nbsp;(tuple)&nbsp;The&nbsp;columns&nbsp;to&nbsp;include&nbsp;for&nbsp;the&nbsp;query<br>
+:param&nbsp;how:&nbsp;(str)&nbsp;How&nbsp;to&nbsp;join&nbsp;the&nbsp;indexes&nbsp;in&nbsp;the&nbsp;list&nbsp;?<br>
+&nbsp;<br>
+:return:&nbsp;the&nbsp;index&nbsp;of&nbsp;the&nbsp;nodes&nbsp;(pandas.indexes.range.RangeIndex)</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module HubsAuths</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>HubsAuths</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/HubsAuths.py">/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/HubsAuths.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;tools&nbsp;for&nbsp;computing&nbsp;Hubs&nbsp;and&nbsp;Authorities&nbsp;in&nbsp;a&nbsp;directed&nbsp;Graph</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="networkx.html">networkx</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.html">scipy.sparse</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-compute_authorities"><strong>compute_authorities</strong></a>(subgraph, neigs=1)</dt><dd><tt>Compute&nbsp;authorities&nbsp;coefficients&nbsp;the&nbsp;eigen&nbsp;vectors&nbsp;way<br>
+&nbsp;<br>
+:param&nbsp;subgraph:&nbsp;a&nbsp;subgraph&nbsp;(networkx.classes.digraph.DiGraph)<br>
+:param&nbsp;neigs:&nbsp;number&nbsp;of&nbsp;principal&nbsp;vectors&nbsp;wanted<br>
+:return:&nbsp;xstar,&nbsp;nodes&nbsp;:&nbsp;respectively&nbsp;eigen&nbsp;vector&nbsp;stacked&nbsp;as&nbsp;columns&nbsp;and&nbsp;nodes&nbsp;ordering&nbsp;used&nbsp;for&nbsp;computations</tt></dd></dl>
+ <dl><dt><a name="-compute_hubs"><strong>compute_hubs</strong></a>(subgraph, neigs=1)</dt><dd><tt>Compute&nbsp;hubs&nbsp;coefficients&nbsp;the&nbsp;eigen&nbsp;vectors&nbsp;way<br>
+&nbsp;<br>
+:param&nbsp;subgraph:&nbsp;a&nbsp;subgraph&nbsp;(networkx.classes.digraph.DiGraph)<br>
+:param&nbsp;neigs:&nbsp;number&nbsp;of&nbsp;principal&nbsp;vectors&nbsp;wanted<br>
+:return:&nbsp;xstar,&nbsp;nodes&nbsp;:&nbsp;respectively&nbsp;eigen&nbsp;vectors&nbsp;stacked&nbsp;as&nbsp;columns&nbsp;and&nbsp;nodes&nbsp;ordering&nbsp;used&nbsp;for&nbsp;computations</tt></dd></dl>
+ <dl><dt><a name="-get_top_authorities"><strong>get_top_authorities</strong></a>(hubs_auths_df, graph=None, drop_zeroscits=False)</dt><dd><tt>Get&nbsp;top&nbsp;authorities&nbsp;with&nbsp;possibility&nbsp;to&nbsp;eliminate&nbsp;the&nbsp;nodes<br>
+that&nbsp;gets&nbsp;0&nbsp;citations&nbsp;from&nbsp;the&nbsp;ranking<br>
+&nbsp;<br>
+:param&nbsp;hubs_auths_df:&nbsp;DataFrame&nbsp;having&nbsp;columns&nbsp;["xauth_0",&nbsp;"xhub_0"]<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+:param&nbsp;drop_zeroscits:&nbsp;(bool),&nbsp;should&nbsp;nodes&nbsp;with&nbsp;0&nbsp;citations&nbsp;be&nbsp;included&nbsp;in&nbsp;the&nbsp;ranking<br>
+:return:&nbsp;pandas&nbsp;Series,&nbsp;index&nbsp;is&nbsp;the&nbsp;node,&nbsp;the&nbsp;value&nbsp;is&nbsp;the&nbsp;rank</tt></dd></dl>
+ <dl><dt><a name="-get_zero_cits_nodes"><strong>get_zero_cits_nodes</strong></a>(graph)</dt><dd><tt>Get&nbsp;nodes&nbsp;that&nbsp;have&nbsp;0&nbsp;citations<br>
+&nbsp;<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+:return:&nbsp;pandas&nbsp;integer&nbsp;index,&nbsp;the&nbsp;nodes&nbsp;that&nbsp;gets&nbsp;zero&nbsp;citations</tt></dd></dl>
+ <dl><dt><a name="-hubs_authorities_eigen"><strong>hubs_authorities_eigen</strong></a>(subgraph, neigs=1)</dt><dd><tt>Wraps&nbsp;the&nbsp;result&nbsp;from&nbsp;compute_hubs&nbsp;and&nbsp;compute_authorities&nbsp;functions&nbsp;in&nbsp;a&nbsp;dataframe<br>
+&nbsp;<br>
+:param&nbsp;subgraph:&nbsp;a&nbsp;subgraph&nbsp;(networkx.classes.digraph.DiGraph)<br>
+:param&nbsp;neigs:&nbsp;number&nbsp;of&nbsp;principal&nbsp;vectors&nbsp;wanted<br>
+:return:&nbsp;Dataframe&nbsp;containing&nbsp;the&nbsp;principal&nbsp;vectors,&nbsp;indexed&nbsp;with&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-iterate_hubs_auths"><strong>iterate_hubs_auths</strong></a>(subgraph, k=20)</dt><dd><tt>Compute&nbsp;hubs&nbsp;and&nbsp;authorities&nbsp;coefficients&nbsp;the&nbsp;iterative&nbsp;way<br>
+&nbsp;<br>
+:param&nbsp;subgraph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;a&nbsp;subgraph<br>
+:param&nbsp;k:&nbsp;(int)&nbsp;number&nbsp;of&nbsp;iterations<br>
+:return:&nbsp;x,&nbsp;y,&nbsp;nodes&nbsp;respectively&nbsp;vector&nbsp;of&nbsp;authorities&nbsp;coefs,&nbsp;hubs&nbsp;coefs&nbsp;and&nbsp;nodes<br>
+ordering&nbsp;used&nbsp;for&nbsp;computations</tt></dd></dl>
+ <dl><dt><a name="-non_principal_authorities"><strong>non_principal_authorities</strong></a>(eigs_vecs_df, c)</dt><dd><tt>Find&nbsp;c&nbsp;top&nbsp;authorities&nbsp;from&nbsp;set&nbsp;of&nbsp;non&nbsp;principal&nbsp;eigen&nbsp;vectors<br>
+&nbsp;<br>
+:param&nbsp;eigs_vecs_df:&nbsp;DataFrame,&nbsp;should&nbsp;have&nbsp;2&nbsp;columns&nbsp;:<br>
+the&nbsp;i-th&nbsp;eigen&nbsp;vector&nbsp;of&nbsp;ATA&nbsp;and&nbsp;the&nbsp;i-th&nbsp;eigen&nbsp;vector&nbsp;of&nbsp;AAT<br>
+:param&nbsp;c:&nbsp;Number&nbsp;of&nbsp;authorities&nbsp;to&nbsp;retrieve<br>
+:return:&nbsp;Top&nbsp;c&nbsp;authorities</tt></dd></dl>
+ <dl><dt><a name="-non_principal_hubs"><strong>non_principal_hubs</strong></a>(eigs_vecs_df, c)</dt><dd><tt>Find&nbsp;c&nbsp;top&nbsp;hubs&nbsp;from&nbsp;set&nbsp;of&nbsp;non&nbsp;principal&nbsp;eigen&nbsp;vectors<br>
+&nbsp;<br>
+:param&nbsp;eigs_vecs_df:&nbsp;DataFrame,&nbsp;should&nbsp;have&nbsp;2&nbsp;columns&nbsp;:<br>
+the&nbsp;i-th&nbsp;eigen&nbsp;vector&nbsp;of&nbsp;ATA&nbsp;and&nbsp;the&nbsp;i-th&nbsp;eigen&nbsp;vector&nbsp;of&nbsp;AAT<br>
+:param&nbsp;c:&nbsp;Number&nbsp;of&nbsp;authorities&nbsp;to&nbsp;retrieve<br>
+:return:&nbsp;Top&nbsp;c&nbsp;hubs</tt></dd></dl>
+ <dl><dt><a name="-plot_hubs_authorities"><strong>plot_hubs_authorities</strong></a>(subgraph, auths_rank, hubs_rank, kauths=5, khubs=5, layout=&lt;function fruchterman_reingold_layout at 0x10980a9d8&gt;, other_authorities=None, other_hubs=None)</dt><dd><tt>Returns&nbsp;a&nbsp;plot&nbsp;featuring&nbsp;hubs&nbsp;and&nbsp;authorities.<br>
+&nbsp;<br>
+:param&nbsp;subgraph:&nbsp;(networkx.classes.digraph.DiGraph)<br>
+:param&nbsp;auths_rank:<br>
+:param&nbsp;hubs_rank:<br>
+:param&nbsp;kauths:&nbsp;(int)&nbsp;number&nbsp;of&nbsp;authorities&nbsp;to&nbsp;be&nbsp;shown&nbsp;in&nbsp;special&nbsp;style<br>
+:param&nbsp;khubs:&nbsp;(int)&nbsp;number&nbsp;of&nbsp;hubs&nbsp;to&nbsp;be&nbsp;shown&nbsp;in&nbsp;special&nbsp;style<br>
+:param&nbsp;layout:&nbsp;networkx.layout<br>
+:param&nbsp;other_authorities:<br>
+:param&nbsp;other_hubs:<br>
+:return:&nbsp;Plot&nbsp;of&nbsp;the&nbsp;graph&nbsp;featuring&nbsp;hubs&nbsp;and&nbsp;authorities</tt></dd></dl>
+</td></tr></table>
+</body></html>

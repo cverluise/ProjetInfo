@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module PageRank</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>PageRank</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/PageRank.py">/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/PageRank.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;tools&nbsp;for&nbsp;PageRank&nbsp;computation<br>
+&nbsp;<br>
+Beware:&nbsp;not&nbsp;as&nbsp;efficient&nbsp;as&nbsp;the&nbsp;networkx&nbsp;implementation&nbsp;so&nbsp;far.<br>
+We&nbsp;recommend&nbsp;to&nbsp;use&nbsp;the&nbsp;aforementioned&nbsp;distribution.<br>
+&nbsp;<br>
+#&nbsp;Toy&nbsp;example&nbsp;for&nbsp;testing&nbsp;this&nbsp;implementation<br>
+row&nbsp;=&nbsp;np.array([0,&nbsp;0,&nbsp;1,&nbsp;2,&nbsp;2,&nbsp;2])<br>
+col&nbsp;=&nbsp;np.array([0,&nbsp;2,&nbsp;2,&nbsp;0,&nbsp;1,&nbsp;2])<br>
+data&nbsp;=&nbsp;np.array([1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6])<br>
+&nbsp;<br>
+a_wodang&nbsp;=&nbsp;sparse.csc_matrix((data,&nbsp;(row,&nbsp;col)),&nbsp;(4,&nbsp;4))<br>
+a_wdang&nbsp;=&nbsp;sparse.csc_matrix((data,&nbsp;(row,&nbsp;col)),&nbsp;(5,&nbsp;5))</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="scipy.sparse.linalg.html">scipy.sparse.linalg</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.html">scipy.sparse</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_dangmat"><strong>get_dangmat</strong></a>(adj_mat)</dt><dd><tt>Returns&nbsp;the&nbsp;matrix&nbsp;of&nbsp;dangling&nbsp;nodes&nbsp;mandatory&nbsp;score&nbsp;spreading<br>
+:param&nbsp;adj_mat:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n<br>
+:return:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n</tt></dd></dl>
+ <dl><dt><a name="-get_dangvec"><strong>get_dangvec</strong></a>(adj_mat)</dt><dd><tt>Returns&nbsp;the&nbsp;vector&nbsp;of&nbsp;dangling&nbsp;nodes&nbsp;(0&nbsp;if&nbsp;False,&nbsp;1&nbsp;if&nbsp;Trues)<br>
+:param&nbsp;adj_mat:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n<br>
+:return:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;1</tt></dd></dl>
+ <dl><dt><a name="-get_gmat"><strong>get_gmat</strong></a>(adj_mat, theta)</dt><dd><tt>Returns&nbsp;the&nbsp;G&nbsp;mat&nbsp;((1-theta)&nbsp;*&nbsp;1/N.1.1T&nbsp;+&nbsp;theta&nbsp;*&nbsp;H)<br>
+:param&nbsp;adj_mat:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n<br>
+:param&nbsp;theta:&nbsp;(numeric)&nbsp;damping&nbsp;factor<br>
+:return:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n</tt></dd></dl>
+ <dl><dt><a name="-get_hmat"><strong>get_hmat</strong></a>(adj_mat)</dt><dd><tt>Returns&nbsp;the&nbsp;H&nbsp;mat&nbsp;(normalized&nbsp;adj_mat&nbsp;+&nbsp;mandatory&nbsp;score&nbsp;spreading)<br>
+:param&nbsp;adj_mat:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n<br>
+:return:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n</tt></dd></dl>
+ <dl><dt><a name="-get_pagerank"><strong>get_pagerank</strong></a>(adj_mat, theta=0.85, epsilon=0.001, max_iter=20)</dt><dd><tt>Returns&nbsp;the&nbsp;vector&nbsp;of&nbsp;pagerank&nbsp;scores<br>
+:param&nbsp;adj_mat:&nbsp;(scipy.sparse.csc.csc_matrix)&nbsp;n&nbsp;x&nbsp;n<br>
+:param&nbsp;theta:&nbsp;(numeric)&nbsp;damping&nbsp;factor<br>
+:param&nbsp;epsilon:&nbsp;(numeric)&nbsp;convergence&nbsp;parameter<br>
+:return:&nbsp;vector&nbsp;of&nbsp;pagerank&nbsp;scores&nbsp;n&nbsp;x&nbsp;1</tt></dd></dl>
+</td></tr></table>
+</body></html>

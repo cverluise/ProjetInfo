@@ -1,0 +1,5 @@
+# Untrack pycharm projects files
+.DS_Store
+References/
+.idea/
+.ipynb_checkpoints

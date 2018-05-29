@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module GraphCN</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>GraphCN</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/GraphCN.py">/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/GraphCN.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;tools&nbsp;for&nbsp;building&nbsp;network&nbsp;graph</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="itertools.html">itertools</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-article_matching"><strong>article_matching</strong></a>(url_id_series, to_match)</dt><dd><tt>Match&nbsp;url_ids&nbsp;from&nbsp;url_id_series&nbsp;to&nbsp;each&nbsp;element&nbsp;of&nbsp;to_match<br>
+(concretely&nbsp;:&nbsp;transforms&nbsp;urls&nbsp;into&nbsp;their&nbsp;article_id&nbsp;from&nbsp;attrs)<br>
+&nbsp;<br>
+:param&nbsp;url_id_series:&nbsp;(pandas.core.series.Series)<br>
+&nbsp;series&nbsp;which&nbsp;index&nbsp;is&nbsp;the&nbsp;article&nbsp;number&nbsp;and&nbsp;which&nbsp;field&nbsp;is&nbsp;its&nbsp;url<br>
+:param&nbsp;to_match:&nbsp;(pandas.core.series.Series)<br>
+&nbsp;series&nbsp;of&nbsp;url&nbsp;to&nbsp;match&nbsp;to&nbsp;articles&nbsp;numbers&nbsp;in&nbsp;url_id_series<br>
+&nbsp;<br>
+:return&nbsp;:&nbsp;(pandas.core.series.Series)&nbsp;to_match&nbsp;with&nbsp;urls&nbsp;replaced<br>
+by&nbsp;articles&nbsp;numbers&nbsp;from&nbsp;url_id_series</tt></dd></dl>
+ <dl><dt><a name="-edgesdf_to_edgeslist"><strong>edgesdf_to_edgeslist</strong></a>(refs_df_id)</dt><dd><tt>Convert&nbsp;dataframe&nbsp;of&nbsp;refs/cits&nbsp;edges&nbsp;with&nbsp;columns&nbsp;"referring"&nbsp;and&nbsp;"referred_to"<br>
+to&nbsp;a&nbsp;list&nbsp;of&nbsp;edges&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;networkx&nbsp;constructor<br>
+:param&nbsp;refs_df_id:<br>
+:return:</tt></dd></dl>
+ <dl><dt><a name="-get_citations_ranking"><strong>get_citations_ranking</strong></a>(graph, nodes=None, drop_zeros=True)</dt><dd><tt>Return&nbsp;a&nbsp;series&nbsp;of&nbsp;number&nbsp;of&nbsp;citations&nbsp;ranks&nbsp;indexed&nbsp;by&nbsp;the&nbsp;nodes<br>
+&nbsp;<br>
+:param&nbsp;graph:&nbsp;(networkx.classes.digraph.DiGraph)&nbsp;the&nbsp;graph<br>
+:param&nbsp;nodes:&nbsp;(list)&nbsp;nodes&nbsp;to&nbsp;rank<br>
+:param&nbsp;drop_zeros:<br>
+&nbsp;<br>
+:return:&nbsp;pandas&nbsp;Series&nbsp;of&nbsp;ranking&nbsp;indexed&nbsp;by&nbsp;the&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-get_edges_list"><strong>get_edges_list</strong></a>(auths_nums)</dt><dd><tt>Get&nbsp;list&nbsp;of&nbsp;edges&nbsp;between&nbsp;authors&nbsp;from&nbsp;a&nbsp;series&nbsp;of&nbsp;list&nbsp;of&nbsp;authors<br>
+(each&nbsp;entry&nbsp;of&nbsp;the&nbsp;series&nbsp;are&nbsp;the&nbsp;authors&nbsp;of&nbsp;a&nbsp;given&nbsp;article).<br>
+&nbsp;<br>
+:param&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auths_nums&nbsp;(pandas.core.series.Series)&nbsp;:&nbsp;the&nbsp;series&nbsp;of&nbsp;list&nbsp;of&nbsp;authors<br>
+:return&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;:&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;with&nbsp;possibly&nbsp;redundant&nbsp;tuples<br>
+&nbsp;<br>
+WARNING:&nbsp;Filters&nbsp;out&nbsp;articles&nbsp;with&nbsp;only&nbsp;one&nbsp;author</tt></dd></dl>
+ <dl><dt><a name="-get_nodes_list"><strong>get_nodes_list</strong></a>(auths_nums)</dt><dd><tt>Get&nbsp;the&nbsp;different&nbsp;authors&nbsp;from&nbsp;the&nbsp;series&nbsp;of&nbsp;list&nbsp;of&nbsp;authors.<br>
+WARNING:&nbsp;we&nbsp;add&nbsp;non&nbsp;connected&nbsp;authors&nbsp;to&nbsp;the&nbsp;graph&nbsp;afterwards.<br>
+&nbsp;<br>
+:param&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;auths_nums&nbsp;(pandas.core.series.Series)&nbsp;:&nbsp;the&nbsp;series&nbsp;of&nbsp;list&nbsp;of&nbsp;authors.<br>
+&nbsp;<br>
+:return&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;:&nbsp;the&nbsp;list&nbsp;of&nbsp;authors.</tt></dd></dl>
+ <dl><dt><a name="-match_articles"><strong>match_articles</strong></a>(refs_df, id_series, begin_with='referred_to')</dt><dd><tt>Match&nbsp;all&nbsp;articles&nbsp;in&nbsp;the&nbsp;references&nbsp;(or&nbsp;citations)&nbsp;dataframe.<br>
+Matching&nbsp;is&nbsp;done&nbsp;first&nbsp;for&nbsp;the&nbsp;article&nbsp;to&nbsp;which&nbsp;the&nbsp;reference&nbsp;is&nbsp;since<br>
+they&nbsp;are&nbsp;not&nbsp;all&nbsp;in&nbsp;our&nbsp;database,&nbsp;we&nbsp;thus&nbsp;remove&nbsp;the&nbsp;deadlinks&nbsp;before<br>
+matching&nbsp;the&nbsp;articles&nbsp;from&nbsp;which&nbsp;the&nbsp;reference&nbsp;originates<br>
+which&nbsp;spares&nbsp;a&nbsp;lot&nbsp;of&nbsp;useless&nbsp;computations.<br>
+&nbsp;<br>
+:param&nbsp;refs_df:&nbsp;(pandas.core.frame.DataFrame)<br>
+:param&nbsp;id_series:<br>
+:param&nbsp;begin_with:<br>
+:return:</tt></dd></dl>
+ <dl><dt><a name="-sort_edges"><strong>sort_edges</strong></a>(edges_list)</dt><dd><tt>For&nbsp;all&nbsp;tuples&nbsp;in&nbsp;edges_list,&nbsp;put&nbsp;the&nbsp;lowest&nbsp;number&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;and&nbsp;then&nbsp;sort&nbsp;the&nbsp;whole&nbsp;list.<br>
+&nbsp;<br>
+:param&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;edges_list&nbsp;(list)&nbsp;:&nbsp;list&nbsp;of&nbsp;tuples&nbsp;representing&nbsp;the&nbsp;authors&nbsp;pairs<br>
+:return&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;:&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;after&nbsp;the&nbsp;two&nbsp;sorting&nbsp;steps&nbsp;described&nbsp;above</tt></dd></dl>
+ <dl><dt><a name="-weighted_edges_list"><strong>weighted_edges_list</strong></a>(sorted_edges_list)</dt><dd><tt>Convert&nbsp;list&nbsp;of&nbsp;authors&nbsp;pairs&nbsp;to&nbsp;a&nbsp;dict&nbsp;of&nbsp;dict&nbsp;to&nbsp;pass&nbsp;to&nbsp;the&nbsp;networkx.Graph&nbsp;constructor.<br>
+Count&nbsp;the&nbsp;duplicates&nbsp;and&nbsp;store&nbsp;them&nbsp;in&nbsp;the&nbsp;"weights"&nbsp;attributes&nbsp;of&nbsp;the&nbsp;dictionary&nbsp;so&nbsp;that<br>
+an&nbsp;edge&nbsp;that&nbsp;appears&nbsp;k&nbsp;times&nbsp;in&nbsp;sorted_edges_list&nbsp;will&nbsp;get&nbsp;a&nbsp;weight&nbsp;of&nbsp;k&nbsp;in&nbsp;the&nbsp;graph.<br>
+&nbsp;<br>
+:param&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;:&nbsp;sorted&nbsp;list&nbsp;of&nbsp;tuples<br>
+&nbsp;<br>
+:return&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict&nbsp;:&nbsp;a&nbsp;dict&nbsp;of&nbsp;dict,&nbsp;for&nbsp;a&nbsp;given&nbsp;tuple&nbsp;(author1,&nbsp;author2),&nbsp;entry&nbsp;of&nbsp;the&nbsp;form&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{author1&nbsp;:&nbsp;{author2:&nbsp;{'weight':&nbsp;n_collaborations(author1,&nbsp;author2)}}}</tt></dd></dl>
+</td></tr></table>
+</body></html>

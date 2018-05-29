@@ -1,0 +1,11 @@
+AuthorsGraph.py
+DbScrap.py
+DisambAuth.py
+HITS.py
+README.md
+RefsCitsGraph.py
+setup.py
+CitNet.egg-info/PKG-INFO
+CitNet.egg-info/SOURCES.txt
+CitNet.egg-info/dependency_links.txt
+CitNet.egg-info/top_level.txt

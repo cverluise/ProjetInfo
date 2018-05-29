@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module DisambName</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>DisambName</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/DisambName.py">/Users/cyrilverluise/Documents/DS/S2/PInfo/ProjetInfo_CV/CitNet/DisambName.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;tools&nbsp;for&nbsp;name&nbsp;disambiguation&nbsp;network&nbsp;graph</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="jellyfish.html">jellyfish</a><br>
+</td><td width="25%" valign=top><a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-author_comparison"><strong>author_comparison</strong></a>(potential_match, author, thresh=0.1)</dt><dd><tt>Function&nbsp;to&nbsp;determine&nbsp;(approximately)&nbsp;whether&nbsp;two&nbsp;authors&nbsp;are&nbsp;likely&nbsp;to&nbsp;be&nbsp;the&nbsp;same<br>
+&nbsp;<br>
+:param&nbsp;potential_match:&nbsp;(str)&nbsp;potential&nbsp;match&nbsp;to&nbsp;compare&nbsp;author&nbsp;to<br>
+:param&nbsp;author:&nbsp;(str)&nbsp;author&nbsp;to&nbsp;match<br>
+:param&nbsp;thresh:&nbsp;(float)&nbsp;between&nbsp;0&nbsp;and&nbsp;1,&nbsp;the&nbsp;normalized&nbsp;Levensthein&nbsp;distance&nbsp;tolerance<br>
+:return:&nbsp;(bool)&nbsp;True&nbsp;if&nbsp;is&nbsp;likely&nbsp;to&nbsp;be&nbsp;a&nbsp;match&nbsp;and&nbsp;False&nbsp;otherwise</tt></dd></dl>
+ <dl><dt><a name="-author_corresp"><strong>author_corresp</strong></a>(authors_df, eqs_cols, author_list)</dt><dd><tt>:param&nbsp;authors_df:<br>
+:param&nbsp;eqs_cols:<br>
+:param&nbsp;author_list:<br>
+:return:</tt></dd></dl>
+ <dl><dt><a name="-authors_parser"><strong>authors_parser</strong></a>(authors_string, sep=';')</dt><dd><tt>This&nbsp;function&nbsp;gets&nbsp;a&nbsp;str&nbsp;("auth1;auth2;...")&nbsp;and&nbsp;returns&nbsp;a&nbsp;list<br>
+of&nbsp;authors&nbsp;["auth1",&nbsp;"auth2",&nbsp;...]<br>
+&nbsp;<br>
+:param&nbsp;authors_string:<br>
+:param&nbsp;sep:&nbsp;separator&nbsp;operator&nbsp;(default:&nbsp;";")<br>
+:return:</tt></dd></dl>
+ <dl><dt><a name="-map_authors"><strong>map_authors</strong></a>(auths_df, thresh)</dt><dd><tt>This&nbsp;functions&nbsp;looks&nbsp;for&nbsp;authors&nbsp;with&nbsp;"close&nbsp;enough"&nbsp;names&nbsp;where&nbsp;similarity&nbsp;is&nbsp;defined<br>
+by&nbsp;the&nbsp;author_comparison&nbsp;function&nbsp;with&nbsp;treshold&nbsp;'tresh'.&nbsp;It&nbsp;returns&nbsp;a&nbsp;dataframe&nbsp;with<br>
+an&nbsp;additional&nbsp;var&nbsp;containing&nbsp;a&nbsp;list&nbsp;of&nbsp;"equivalent"&nbsp;names.<br>
+&nbsp;<br>
+:param&nbsp;auths_df:&nbsp;(pandas.core.frame.DataFrame)&nbsp;with&nbsp;"original"&nbsp;and&nbsp;"uniformat"&nbsp;columns<br>
+(see&nbsp;unformize_names)<br>
+:param&nbsp;thresh:&nbsp;(float)&nbsp;in&nbsp;(0;1)&nbsp;(see&nbsp;autho_comparison)<br>
+:return:</tt></dd></dl>
+ <dl><dt><a name="-normalized_edit_distance"><strong>normalized_edit_distance</strong></a>(str1, str2)</dt><dd><tt>This&nbsp;function&nbsp;returns&nbsp;the&nbsp;normalized&nbsp;Levenshtein&nbsp;distance<br>
+between&nbsp;2&nbsp;strings<br>
+&nbsp;<br>
+:param&nbsp;str1:&nbsp;string<br>
+:param&nbsp;str2:&nbsp;string<br>
+:return:&nbsp;distLev(str1,str2)/max(len(str1),str(2))</tt></dd></dl>
+ <dl><dt><a name="-str_to_list"><strong>str_to_list</strong></a>(x)</dt><dd><tt>Interpret&nbsp;strings&nbsp;of&nbsp;the&nbsp;form&nbsp;"['auth1',&nbsp;'auth2']"&nbsp;as&nbsp;the&nbsp;list&nbsp;['auth1',&nbsp;'auth2']<br>
+&nbsp;<br>
+:param&nbsp;x:&nbsp;(str)&nbsp;string&nbsp;to&nbsp;interpret<br>
+:return&nbsp;y:&nbsp;(list)&nbsp;the&nbsp;output&nbsp;list</tt></dd></dl>
+ <dl><dt><a name="-uniformize_names"><strong>uniformize_names</strong></a>(str1)</dt><dd><tt>This&nbsp;function&nbsp;turns&nbsp;a&nbsp;name&nbsp;string&nbsp;"Name,&nbsp;Surname"&nbsp;into<br>
+"Surname&nbsp;Name"<br>
+&nbsp;<br>
+:param&nbsp;str1:<br>
+:return:</tt></dd></dl>
+ <dl><dt><a name="-unpack_authors_list"><strong>unpack_authors_list</strong></a>(authors_df)</dt><dd><tt>:param&nbsp;authors_df:<br>
+:return:</tt></dd></dl>
+</td></tr></table>
+</body></html>
